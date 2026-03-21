@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS employee (
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     department VARCHAR(50) NOT NULL,
+    -- salary DECIMAL(10, 2) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
