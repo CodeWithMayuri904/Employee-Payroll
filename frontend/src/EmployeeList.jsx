@@ -28,28 +28,20 @@ export default function EmployeeList() {
             //console.log(res.data);
     }, []);
 
-  
-    // const handleAdd = (employeeData) => {
-    //     addEmployee(employeeData)
-    //         .then((res) => {
-    //         // use res.data which now includes correct numeric salary
-    //         setEmployees([...employees, res.data]);
-    //         })
-    //         .catch((err) => console.error(err));
-    // };
+
 
     const handleAdd = (employeeData) => {
-  if (!employeeData.name || !employeeData.email) {
-    alert("Name and Email are required");
-    return;
-  }
+        if (!employeeData.name || !employeeData.email) {
+            alert("Name and Email are required");
+            return;
+        }
 
-  addEmployee(employeeData)
-    .then((res) => {
-      setEmployees([...employees, res.data]);
-    })
-    .catch((err) => console.error(err));
-};
+        addEmployee(employeeData)
+            .then((res) => {
+            setEmployees([...employees, res.data]);
+            })
+            .catch((err) => console.error(err));
+    };
 
     const handleEdit = (id, updatedData) => {
         updateEmployee(id, updatedData)
@@ -110,19 +102,13 @@ export default function EmployeeList() {
 
                 <div>
                     <label className="font-semibold text-gray-500" htmlFor="salary">Salary :</label>
-                    {/* <input className="ml-4 p-1 border border-gray-300 text-gray-500 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 mb-4"
-                    type="text" placeholder="enter the salary"
-                    value = {formData.salary}
-                    onChange = {(e) => setFormData({ ...formData, salary: e.target.value })}/> */}
-
                     <input className="ml-4 p-1 border border-gray-300 text-gray-500 mb-4" 
                         type="number"
                         placeholder="enter the salary"
                         value={formData.salary}
-                        // onChange={(e) => setFormData({ ...formData, salary: e.target.value })}
                         onChange={(e) => setFormData({ ...formData, salary: Number(e.target.value) })}
                         
-                        />
+                    />
                 </div>
 
                 
@@ -170,41 +156,6 @@ export default function EmployeeList() {
                     ))}
                 </tbody>
 
-
-                {/* <tbody>
-                    <tr>
-                        <td className="border border-gray-300 p-2">John Doe</td>
-                        <td className="border border-gray-300 p-2">john.doe@example.com</td>
-                        <td className="border border-gray-300 p-2">HR</td>
-                        <td className="border border-gray-300 p-2">$75,000</td>
-                        <td className="border border-gray-300 p-2">Active</td>
-                        <td className="px-4 py-2 flex gap-4 items-center justify-center">
-                            <LiaEditSolid className="text-green-500 hover:text-green-700 cursor-pointer w-6 h-6" />
-                            <RiDeleteBin6Line className="text-red-500 hover:text-red-700 cursor-pointer w-5 h-5"/>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td className="border border-gray-300 p-2">Jane Smith</td>
-                        <td className="border border-gray-300 p-2">jane.smith@gmailcom</td>
-                        <td className="border border-gray-300 p-2">Marketing</td>
-                        <td className="border border-gray-300 p-2">$65,000</td> 
-                    </tr>
-
-                    <tr>
-                        <td className="border border-gray-300 p-2">Alice Johnson</td>   
-                        <td className="border border-gray-300 p-2">alice.johnson@example.com</td>
-                        <td className="border border-gray-300 p-2">IT</td>
-                        <td className="border border-gray-300 p-2">$60,000</td>
-                    </tr>
-
-                    <tr>
-                        <td className="border border-gray-300 p-2">Bob</td>   
-                        <td className="border border-gray-300 p-2">bob@gmail.com</td>
-                        <td className="border border-gray-300 p-2">Sales</td>
-                        <td className="border border-gray-300 p-2">$60,000</td>
-                    </tr>
-                </tbody> */}
             </table>
         </div>
     );
